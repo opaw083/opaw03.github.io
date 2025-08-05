@@ -1,43 +1,75 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+<!doctype html>
+<html>
 
-on:
-  # Runs on pushes targeting the default branch
-  push:
-    branches: ["master"]
+<head>
+    <meta charset="utf-8">
+    <title>Word Love Code</title>
+    <meta name="language" content="zh-CN">
+    <meta name="github" content="https://github.com/sun0225SUN/Awesome-Love-Code">
+    <meta name="describe" content="收集不易，您的star是我坚持的动力，同时也欢迎各位PR哦! ">
+    <link rel="icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/sun0225SUN/photos/img/20210715233345.png">
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+    <style>
+        html,
+        body {
+            margin: 0px;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #000;
+        }
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+        canvas {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
+        .namebox {
+            color: #ff5ba5;
+            position: absolute;
+            z-index: 9999;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            transition: 1s;
+        }
 
-jobs:
-  # Single deploy job since we're just deploying
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # Upload entire repository
-          path: '.'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        .namebox h1 {
+            margin: 0 auto;
+        }
+    </style>
+
+</head>
+
+<body>
+    <canvas id="canvas-matrix" style="position:absolute;width:100%;height:100%;z-index:8888"></canvas>
+    <!-- <canvas id="canvas" style="position:absolute;width:100%;height:100%;z-index:8888"></canvas> -->
+    <canvas style="position:absolute;width:100%;height:100%;z-index:9999" class="canvas"></canvas>
+    <div class="overlay">
+        <div class="tabs">
+            <div class="tabs-labels"><span class="tabs-label">Commands</span><span class="tabs-label">Info</span><span
+                    class="tabs-label">Share</span></div>
+
+            <div class="tabs-panels">
+                <ul class="tabs-panel commands">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <canvas id="pinkboard" style="position:absolute;width:100%;height:100%;z-index:8888"></canvas>
+
+    <script src="js/index.js"></script>
+    <script src="js/heart.js"></script>
+    <script src="js/matrix.js"></script>
+    <div class="namebox" style="opacity: 0;">
+        <h1 style="font-family: 'Comic Sans MS', cursive, sans-serif;">Wuv U&#10084;&#65039;Bao Bao</h1>
+    </div>
+
+</body>
+
+</html>
